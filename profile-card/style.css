@@ -1,0 +1,191 @@
+/* Remove espaçamentos padrão e facilita o cálculo dos tamanhos */
+* {
+  box-sizing: border-box;
+}
+
+/* Define a paleta e as fontes usadas no projeto */
+:root {
+  --fundo: #eaf3ff;
+  --cartao: #ffffff;
+  --texto: #17243d;
+  --texto-suave: #63708a;
+  --destaque: #5b4bdb;
+  --destaque-claro: #eceaff;
+  --borda: #dfe5f2;
+  --destaque-2: #eef6ff;
+}
+
+/* Centraliza o cartão vertical e horizontalmente na tela */
+body {
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(135deg, #e9f4ff 0%, #f7f1ff 100%);
+  color: var(--texto);
+  font-family: "DM Sans", Arial, sans-serif;
+}
+
+/* Flexbox mantém o conteúdo centralizado com espaço nas bordas */
+.pagina {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* Cria o cartão com sombra, bordas arredondadas e transição */
+.cartao-perfil {
+  width: min(100%, 470px);
+  padding: 32px;
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(49, 70, 111, 0.14);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Eleva o cartão levemente ao passar o mouse */
+.cartao-perfil:hover {
+  transform: translateY(-8px);
+  border-color: var(--destaque);
+  box-shadow: 0 24px 52px rgba(49, 70, 111, 0.22);
+}
+
+/* Flexbox mantém foto e informações lado a lado, alinhadas ao centro */
+.cabecalho-perfil {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--borda);
+}
+
+/* Mantém a foto circular e evita que ela seja deformada */
+.foto-perfil {
+  flex: 0 0 98px;
+  width: 98px;
+  height: 98px;
+  margin: 0;
+  overflow: hidden;
+  border: 4px solid var(--destaque-claro);
+  border-radius: 50%;
+}
+
+.foto-perfil img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Organiza título, cargo e localização */
+.apresentacao h1,
+.sobre h2,
+.habilidades h2 {
+  margin: 0;
+  font-family: "Space Grotesk", Arial, sans-serif;
+}
+
+.apresentacao h1 {
+  display: block;
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  line-height: 1.1;
+}
+
+/* Faz o texto ocupar somente o espaço disponível ao lado da foto */
+.apresentacao {
+  flex: 1;
+  min-width: 0;
+}
+
+.cargo {
+  margin: 0 0 6px;
+  color: var(--destaque);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.localizacao {
+  margin: 7px 0 0;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+/* Define espaçamento e leitura confortável para as seções */
+.sobre,
+.habilidades {
+  padding-top: 25px;
+}
+
+.sobre h2,
+.habilidades h2 {
+  font-size: 1.05rem;
+}
+
+.sobre p {
+  margin: 10px 0 0;
+  color: var(--texto-suave);
+  line-height: 1.65;
+}
+
+/* Exibe as tecnologias como etiquetas flexíveis */
+.habilidades ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 0;
+  margin: 12px 0 0;
+  list-style: none;
+}
+
+.habilidades li {
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+/* Aplica cores características para cada tecnologia */
+.habilidades .ux-ui {
+  background: #147d70;
+  color: #ffffff;
+}
+
+.habilidades .html5 {
+  background: #f16529;
+  color: #ffffff;
+}
+
+.habilidades .css3 {
+  background: #1572b6;
+  color: #ffffff;
+}
+
+.habilidades .javascript {
+  background: #f7df1e;
+  color: #000000;
+}
+
+/* Ajusta o cabeçalho para telas pequenas */
+@media (max-width: 420px) {
+  .pagina {
+    padding: 16px;
+  }
+
+  .cartao-perfil {
+    padding: 24px;
+  }
+
+  .cabecalho-perfil {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .foto-perfil {
+    flex-basis: 78px;
+    width: 78px;
+    height: 78px;
+  }
+
+}
